@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Surat Al-Qur'an</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Daftar Surat Al-Qur'an</h1>
+    <table id="surahTable">
+        <thead>
+            
+                <th>No.</th>
+                <th>Nama Surah (Latin)</th>
+                <th>Nama Surah (Indonesia)</th>
+                <th>Jumlah Ayat</th>
+                <th>Turun di Mekkah/Madinah</th>
+            
+        </thead>
+        <tbody>
+            <!-- Data will be inserted here -->
+          
+        </tbody>
+    </table>
+
+    <script>
+        async function fetchSurahData() {
+            try {
+                const response = await fetch('https://equran.id/api/v2/surat');
+                const data = await response.json();
+                const surahs = data.data;
+
+                const tableBody = document.querySelector('#surahTable tbody');
+                surahs.forEach((surah, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td>${surah.namaLatin}</td>
+                        <td>${surah.nama}</td>
+                        <td>${surah.jumlahAyat}</td>
+                        <td>${surah.tempatTurun}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error fetching surah data:', error);
+            }
+        }
+
+        fetchSurahData();
+    </script>
+</body>
+</html>

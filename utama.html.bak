@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Naskh+Arabic:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Quran Viewer</title>
+    <style>
+        * {
+          background-color:  #b2babb  ;
+          font-family: "Amiri", serif;
+  font-weight: 700;
+  font-style: italic;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .ayat {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .ayat:hover {
+            background-color: #f0f8ff;
+        }
+        .teksArab {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: right;
+        }
+        .teksLatin,
+        .teksIndonesia {
+            font-size: 16px;
+            margin-top: 5px;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .pagination button {
+            margin: 0 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        .pagination button:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Al-Quran </h1>
+        <div id="ayat-container"></div>
+        <div class="pagination">
+            <button id="prev-button" disabled>Previous</button>
+            <button id="next-button">Next</button>
+        </div>
+      </div>
+        <footer>
+            <p>&copy; 2024 Al-Quran Viewer. All rights reserved coderTamvan</p>
+        </footer>
+    
+
+    <script>
+    
+    
+   https://equran.id/api/v2/surat
+        let currentSurah = 1;
+
+        // Memuat data ayat dari API
+        async function fetchSurat(surahNumber) {
+            try {
+                const response = await fetch(`https://equran.id/api/v2/surat/`);
+                const data = await response.json();
+                renderAyat(data.data.nomor, data.data.nama,data.data.arti);
+                updatePaginationButtons();
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        // Menampilkan ayat di halaman
+        function renderAyat(ayatList, namaSurah) {
+            const container = document.getElementById('ayat-container');
+            container.innerHTML = `<h2>${nama}</h2>`;
+            ayatList.forEach(ayat => {
+                const ayatDiv = document.createElement('div');
+                ayatDiv.className = 'ayat';
+                ayatDiv.innerHTML = `
+                    <div class="nomor-ayat">dkdodk ${ayat.nama}</div>
+                    <div class="teksArab">${ayat.teksArab}</div>
+                    <p class="teksLatin">${ayat.teksLatin}</p>
+                    <p class="teksIndonesia">${ayat.teksIndonesia}</p>
+                        
+                `;
+                ayatDiv.onclick = () => {
+                    // Navigasi ke halaman tafsir dengan parameter ID surat
+                    window.location.href = `tafsir.html?surah=${currentSurah}&ayat=${ayat.nomorAyat}`;
+                };
+                container.appendChild(ayatDiv);
+            });
+        }
+
+        // Mengatur tombol pagination
+        function updatePaginationButtons() {
+            const prevButton = document.getElementById('prev-button');
+            const nextButton = document.getElementById('next-button');
+
+            prevButton.disabled = currentSurah === 1;
+            nextButton.disabled = currentSurah === 114;
+        }
+
+        // Navigasi halaman sebelumnya
+        document.getElementById('prev-button').addEventListener('click', () => {
+            if (currentSurah > 1) {
+                currentSurah--;
+                fetchSurat(currentSurah);
+            }
+        });
+
+        // Navigasi halaman berikutnya
+        document.getElementById('next-button').addEventListener('click', () => {
+            if (currentSurah < 114) {
+                currentSurah++;
+                fetchSurat(currentSurah);
+            }
+        });
+
+        // Memulai aplikasi
+        fetchSurat(currentSurah);
+    </script>
+</body>
+</html>

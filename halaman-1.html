@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Lateef:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Qur'an Online</title>
+    <style>
+        body {
+            font-family: "Amiri", serif;
+  font-weight: 700;
+  font-style: italic;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .surah-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .surah-container:hover {
+            background-color: #e0e0e0;
+        }
+        .surah-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .surah-info {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .surah-description {
+            color: #333;
+        }
+        .ayat-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .ayat-number {
+            font-size: 1.2em;
+            color: #777;
+        }
+        .ayat-text {
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+        .tafsir-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .tafsir-title {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        .tafsir-text {
+            color: #333;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="page-title">Daftar Surat Al-Qur'an</h1>
+        <div id="surah-list"></div>
+        <div id="surah-details" style="display:none;">
+            <h1 id="surah-name"></h1>
+            <button onclick="goBack()">Kembali ke Daftar Surat</button>
+            <div id="ayat-list"></div>
+            <div id="tafsir-list"></div>
+        </div>
+    </div>
+
+    <script>
+        async function fetchSurahData() {
+            try {
+                const response = await fetch('https://equran.id/api/v2/surat');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                displaySurahs(data.data);
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
+            }
+        }
+
+        function displaySurahs(surahs) {
+            const surahList = document.getElementById('surah-list');
+            surahs.forEach(surah => {
+                const surahContainer = document.createElement('div');
+                surahContainer.className = 'surah-container';
+                surahContainer.dataset.surahId = surah.nomor;
+                surahContainer.addEventListener('click', () => showSurahDetails(surah.nomor));
+
+                const surahTitle = document.createElement('div');
+                surahTitle.className = 'surah-title';
+                surahTitle.textContent = `${surah.nomor}. ${surah.namaLatin} (${surah.nama})`;
+
+                const surahInfo = document.createElement('div');
+                surahInfo.className = 'surah-info';
+                surahInfo.innerHTML = `Jumlah Ayat: ${surah.jumlahAyat}, Turun di: ${surah.tempatTurun}`;
+
+                const surahDescription = document.createElement('div');
+                surahDescription.className = 'surah-description';
+                surahDescription.textContent = surah.arti;
+
+                surahContainer.appendChild(surahTitle);
+                surahContainer.appendChild(surahInfo);
+                surahContainer.appendChild(surahDescription);
+
+                surahList.appendChild(surahContainer);
+            });
+        }
+
+        async function showSurahDetails(surahId) {
+            try {
+                const surahResponse = await fetch(`https://equran.id/api/v2/surat/${surahId}`);
+                const tafsirResponse = await fetch(`https://equran.id/api/v2/tafsir/${surahId}`);
+                
+                if (!surahResponse.ok || !tafsirResponse.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const surahData = await surahResponse.json();
+                const tafsirData = await tafsirResponse.json();
+
+                displayAyats(surahData.data.ayat, surahData.data.namaLatin);
+                displayTafsir(tafsirData.data.tafsir);
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
+            }
+        }
+
+        function displayAyats(ayats, surahName) {
+            document.getElementById('page-title').textContent = `Ayat dan Tafsir Surah ${surahName}`;
+            document.getElementById('surah-name').textContent = surahName;
+            const ayatList = document.getElementById('ayat-list');
+            ayatList.innerHTML = '';
+            ayats.forEach(ayat => {
+                const ayatContainer = document.createElement('div');
+                ayatContainer.className = 'ayat-container';
+
+                const ayatNumber = document.createElement('div');
+                ayatNumber.className = 'ayat-number';
+                ayatNumber.textContent = `gg ${ayat.nama}`;
+
+                const ayatText = document.createElement('div');
+                ayatText.className = 'ayat-text';
+                ayatText.textContent = ayat.teksArab;
+
+                ayatContainer.appendChild(ayatNumber);
+                ayatContainer.appendChild(ayatText);
+
+                ayatList.appendChild(ayatContainer);
+            });
+        }
+
+        function displayTafsir(tafsir) {
+            const tafsirList = document.getElementById('tafsir-list');
+            tafsirList.innerHTML = '';
+            tafsir.forEach(tafsirItem => {
+                const tafsirContainer = document.createElement('div');
+                tafsirContainer.className = 'tafsir-container';
+
+                const tafsirTitle = document.createElement('div');
+                tafsirTitle.className = 'tafsir-title';
+                tafsirTitle.textContent = `Tafsir Ayat ${tafsirItem.ayat}`;
+
+                const tafsirText = document.createElement('div');
+                tafsirText.className = 'tafsir-text';
+                tafsirText.textContent = tafsirItem.teks;
+
+                tafsirContainer.appendChild(tafsirTitle);
+                tafsirContainer.appendChild(tafsirText);
+
+                tafsirList.appendChild(tafsirContainer);
+            });
+
+            document.getElementById('surah-list').style.display = 'none';
+            document.getElementById('surah-details').style.display = 'block';
+        }
+
+        function goBack() {
+            document.getElementById('surah-list').style.display = 'block';
+            document.getElementById('surah-details').style.display = 'none';
+        }
+
+        fetchSurahData();
+    </script>
+</body>
+</html>
