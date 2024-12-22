@@ -1,0 +1,53 @@
+<style>
+.infoku{color:#000;font-family: Verdana;font-size:90%;width:100%;height:30px;z-index:9999999;}
+.infoku a{color:#000;text-decoration:none}
+  #marquee-container {
+    width: 100%;
+    overflow: hidden;
+  }
+  #marquee {
+    display: inline-block;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+</style>
+
+<span class="infoku">
+<div id="marquee-container">
+  <marquee behavior="scroll" direction="left" id="marquee"></marquee>
+</div>
+
+<script>
+  const marqueeElement = document.getElementById("marquee");
+
+   // Daftar teks yang akan digunakan, diurutkan berdasarkan hari dari Senin hingga Minggu
+  const textList = [
+    "<b style='color:#03680e;'>Kekalahan seorang santri ialah ketika ia mulai kehilangan rutinitas wiridannya. ~KH. Maimun Zubair~ ?? <i>Jazakumullah Khairan</i> atas dukungannya. Semoga Aplikasi Yasin dan Tahlil ini Bermanfaat.</b>",
+    
+    "<b style='color:#03680e;'>Dunia itu menjadi contoh atau cermin di akhirat. ~KH. Maimun Zubair~   Jazakumullah Khairan atas dukungannya</b>",
+    "<b style='color:#03680e;'>Nanti malam Jumat jangan lupa perbanyak membaca Sholawat, baca Yasin, Tahlil dan mengirim doa pada Orang tua, Guru, dan para leluhur Anda</b>",
+    "<b style='color:#03680e;'>Hari Jumat ini: Sudahkah Anda membaca Sholawat, Yasin, Tahlil dan mengirim doa pada Orang tua, Guru, dan para leluhur Anda hari ini?</b>",
+    "<b style='color:#03680e;'>Mari perbanyak membaca Sholawat, baca Yasin, Tahlil dan mengirim doa pada Orang tua, Guru, dan para leluhur Anda</a></b>",
+    "<b style='color:#03680e;'>Alhamdulillah Aplikasi Yasin dan Tahlil sudah didownload lebih dari 1,5 juta, semoga bermanfaat. Jazakumullah Khairan atas dukungannya.</b>"
+  ];
+
+  // Mendapatkan hari saat ini dan menghitung indeks teks yang akan digunakan
+  const today = new Date().getDay();
+  const textIndex = today === 0 ? 6 : today - 1;
+
+  // Mengubah teks di dalam tag marquee
+  marqueeElement.innerHTML = textList[textIndex];
+</script>
+</span>  
+
+
+
+
+
+
+

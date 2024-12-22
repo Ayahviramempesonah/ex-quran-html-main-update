@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="author" content="Mr. Mung" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+
+<title>Aplikasi Yasin dan Tahlil, berisi Nadhom Asmaul Husna dan berbagai amalan-amalan khas NU lainnya.</title>
+
+<link rel="stylesheet" type="text/css" href="jssocials.css" />
+<link rel="stylesheet" type="text/css" href="jssocials-theme-minima.css" />
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<link type="text/css" rel="stylesheet" href="jquery.mmenu.all.css" />
+<style type="text/css"> 
+@font-face {font-family: 'LPMQ Isep Misbah'; src: url('LPMQ_IsepMisbah.ttf');}
+@font-face {font-family: 'KFGQPC Uthmanic Script HAFS'; src: url('UthmanicHafs1 Ver09.otf');}
+@font-face {font-family: 'KFGQPC_Naskh'; src: url('KFC_naskh.eot'); src: local('KFGQPC Uthman Taha Naskh'), url('KFC_naskh.otf') format('opentype');}
+</style>
+		<!-- for the one page layout -->
+		<style type="text/css">
+			section
+			{
+				border-top: 1px solid #ccc;
+				padding: 150px 0 200px;
+			}
+			section:first-child
+			{
+				border-top: none;
+				padding-top: 0;
+			}
+		</style>
+		
+		<!-- for the fixed header -->
+		<style type="text/css">
+			.header,
+			.footer
+			{
+				position: fixed;
+				left: 0;
+				right: 0;
+			}
+			.header
+			{
+				top: 0;
+			}
+			.footer
+			{
+				bottom: 0;
+			}
+			@media (min-width: 2000px) {
+				.header a
+				{
+					display: none;
+				}
+			}
+			
+		</style>
+		
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<script type="text/javascript" src="hammer.min.js"></script>
+		<link href="WimpyButton_7779992.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="jquery.mmenu.all.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('nav#menu').mmenu({
+					drag 		: true,
+					pageScroll 	: {
+						scroll 		: true,
+						update		: true
+					},
+					// extensions: {
+					// 	'all': ['pagedim-white'],
+					// 	'(min-width: 400px)' : ['pagedim-black']
+					// },
+					sidebar 	: {
+						expanded 	: 2000
+					}
+				});
+			});
+		</script>
+    <script type="text/javascript">
+        $(function () {
+            $(".font-button").bind("click", function () {
+                var size = parseInt($('body').css("font-size"));
+                if ($(this).hasClass("plus")) {
+                    size = size + 2;
+                } else {
+                    size = size - 2;
+                    if (size <= 10) {
+                        size = 10;
+                    }
+                }
+                $('body').css("font-size", size);
+            });
+        });
+    </script>
+<script type="text/javascript">
+        $(function () {
+            $(".font-button").bind("click", function () {
+                var size = parseInt($('#content').css("font-size"));
+                if ($(this).hasClass("plus")) {
+                    size = size + 2;
+                } else {
+                    size = size - 2;
+                    if (size <= 10) {
+                        size = 10;
+                    }
+                }
+                $('#content').css("font-size", size);
+            });
+        });
+</script>
+<script src="wimpy.js"></script>
+	</head>
+	<body><a onclick="myFunction()"><img style="top:5px;position:fixed;right:45px;z-index:99;max-height:28px" src="darkmode.png"/></a>
+<a href="index.html"><img style="top:5px;position:fixed;right:10px;z-index:99;max-height:28px" src="gbr.png"/></a>
+		<div id="page">
+		
+			<div class="header Fixed">
+						<a href="#menu"><span></span></a>
+DOA-DOA
+			</div>
+
+<div class="content" id="content">
+
+<script language="JavaScript">
+function getDina (day, month, year) {
+var tempyear, valdlookup, valdlookupday, dinane;
+var dina = [null, "Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu"];
+var dinalookup = new Array();
+dinalookup[1] = [2, 5, 5, 1, 3, 6, 1, 4, 0, 2, 5, 0];
+dinalookup[2] = [3, 6, 6, 2, 4, 0, 2, 5, 1, 3, 6, 1];
+dinalookup[3] = [4, 0, 1, 4, 6, 2, 4, 0, 3, 5, 1, 3];
+dinalookup[4] = [6, 2, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4];
+dinalookup[5] = [0, 3, 3, 6, 1, 4, 6, 2, 5, 0, 3, 5];
+dinalookup[6] = [1, 4, 4, 0, 2, 5, 0, 3, 6, 1, 4, 6];
+dinalookup[7] = [2, 5, 6, 2, 4, 0, 2, 5, 1, 3, 6, 1];
+dinalookup[8] = [4, 0, 0, 3, 5, 1, 3, 6, 2, 4, 0, 2];
+dinalookup[9] = [5, 1, 1, 4, 6, 2, 4, 0, 3, 5, 1, 3];
+dinalookup[10] = [6, 2, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4];
+dinalookup[11] = [0, 3, 4, 0, 2, 5, 0, 3, 6, 1, 4, 6];
+dinalookup[12] = [2, 5, 5, 1, 3, 6, 1, 4, 0, 2, 5, 0];
+dinalookup[13] = [3, 6, 6, 2, 4, 0, 2, 5, 1, 3, 6, 1];
+dinalookup[14] = [4, 0, 0, 3, 5, 1, 3, 6, 2, 4, 0, 2];
+dinalookup[15] = [5, 1, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4];
+dinalookup[16] = [0, 3, 3, 6, 1, 4, 6, 2, 5, 0, 3, 5];
+dinalookup[17] = [1, 4, 4, 0, 2, 5, 0, 3, 6, 1, 4, 6];
+dinalookup[18] = [2, 5, 5, 1, 3, 6, 1, 4, 0, 2, 5, 0];
+dinalookup[19] = [3, 6, 0, 3, 5, 1, 3, 5, 2, 4, 0, 2];
+dinalookup[20] = [5, 1, 1, 4, 6, 2, 4, 0, 3, 5, 1, 3];
+dinalookup[21] = [6, 2, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4];
+dinalookup[22] = [0, 3, 3, 6, 1, 4, 6, 2, 5, 0, 3, 5];
+dinalookup[23] = [1, 4, 5, 1, 3, 6, 1, 4, 0, 2, 5, 0];
+dinalookup[24] = [3, 6, 6, 2, 4, 0, 2, 5, 1, 3, 6, 1];
+dinalookup[25] = [4, 0, 0, 3, 5, 1, 3, 6, 2, 4, 0, 2];
+dinalookup[26] = [5, 1, 1, 4, 6, 2, 4, 0, 3, 5, 1, 3];
+dinalookup[27] = [6, 2, 3, 6, 1, 4, 6, 2, 5, 0, 3, 5];
+dinalookup[28] = [1, 4, 4, 0, 2, 5, 0, 3, 6, 1, 4, 6];
+tempyear = year+15;
+if (tempyear % 28 == 0) {
+valdlookup = dinalookup[28][month-1];}
+else {
+valdlookup = dinalookup[tempyear % 28][month-1];}
+valdlookupday = valdlookup + day;
+if (valdlookupday > 7) {
+if (valdlookupday % 7 == 0) {
+dinane = dina[7];}
+else {
+dinane = dina[(valdlookupday % 7)];}
+}
+else {
+dinane = dina[valdlookupday];}
+return dinane;
+}
+function getPasaran (day, month, year) {
+var tempyear, valplookup, valplookupday, pasarane;
+var pasaran = [null, "Legi", "Pahing", "Pon", "Wage", "Kliwon"];
+var pasaranlookup = new Array();
+pasaranlookup[1] = [1, 2, 1, 2, 2, 3, 3, 4, 0, 0, 1, 1];
+pasaranlookup[2] = [2, 3, 1, 2, 2, 3, 3, 4, 0, 0, 1, 1];
+pasaranlookup[3] = [2, 3, 1, 2, 2, 3, 3, 4, 0, 0, 1, 1];
+pasaranlookup[4] = [2, 3, 1, 2, 2, 3, 3, 4, 0, 0, 1, 1];
+pasaranlookup[5] = [2, 3, 2, 3, 3, 4, 4, 0, 1, 1, 2, 2];
+pasaranlookup[6] = [3, 4, 2, 3, 3, 4, 4, 0, 1, 1, 2, 2];
+pasaranlookup[7] = [3, 4, 2, 3, 3, 4, 4, 0, 1, 1, 2, 2];
+pasaranlookup[8] = [3, 4, 2, 3, 3, 4, 4, 0, 1, 1, 2, 2];
+pasaranlookup[9] = [3, 4, 3, 4, 4, 0, 0, 1, 2, 2, 3, 3];
+pasaranlookup[10] = [4, 0, 3, 4, 4, 0, 0, 1, 2, 2, 3, 3];
+pasaranlookup[11] = [4, 0, 3, 4, 4, 0, 0, 1, 2, 2, 3, 3];
+pasaranlookup[12] = [4, 0, 3, 4, 4, 0, 0, 1, 2, 2, 3, 3];
+pasaranlookup[13] = [4, 0, 4, 0, 0, 1, 1, 2, 3, 3, 4, 4];
+pasaranlookup[14] = [0, 1, 4, 0, 0, 1, 1, 2, 3, 3, 4, 4];
+pasaranlookup[15] = [0, 1, 4, 0, 0, 1, 1, 2, 3, 3, 4, 4];
+pasaranlookup[16] = [0, 1, 4, 0, 0, 1, 1, 2, 3, 3, 4, 4];
+pasaranlookup[17] = [0, 1, 0, 1, 1, 2, 2, 3, 4, 4, 0, 0];
+pasaranlookup[18] = [1, 2, 0, 1, 1, 2, 2, 3, 4, 4, 0, 0];
+pasaranlookup[19] = [1, 2, 0, 1, 1, 2, 2, 3, 4, 4, 0, 0];
+pasaranlookup[20] = [1, 2, 0, 1, 1, 2, 2, 3, 4, 4, 0, 0];
+tempyear = year+17;
+if (tempyear % 20 == 0) {
+valplookup = pasaranlookup[20][month-1];}
+else {
+valplookup = pasaranlookup[tempyear % 20][month-1];}
+valplookupday = valplookup + day;
+if (valplookupday > 5) {
+if (valplookupday % 5 == 0) {
+pasarane = pasaran[5];}
+else {
+pasarane = pasaran[(valplookupday % 5)];}
+}
+else {
+pasarane = pasaran[valplookupday];}
+return pasarane;
+}
+function getNeptu (dinane, pasarane) {
+var neptu;
+var dina = new Array();
+dina["Minggu"] = 5;
+dina["Senin"] = 4;
+dina["Selasa"] = 3;
+dina["Rabu"] = 7;
+dina["Kamis"] = 8;
+dina["Jum'at"] = 6;
+dina["Sabtu"] = 9;
+var pasaran = new Array();
+pasaran["Legi"] = 5;
+pasaran["Pahing"] = 9;
+pasaran["Pon"] = 7;
+pasaran["Wage"] = 4;
+pasaran["Kliwon"] = 8;
+neptu = dina[dinane] + pasaran[pasarane];
+return neptu;
+}
+function getFullYear(){
+var year = this.getFullYear();
+if(year < 1000){
+year += 1900;}
+return year
+}
+function hitung() {
+var dina, pasaran, neptu;
+var bulan = [null, "Januari", "Pebruari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+var thedate = parseInt(document.forms[0].date.value);
+var themonth = parseInt(document.forms[0].month.value);
+var theyear = parseInt(document.forms[0].year.value);
+var ddate = new Date (theyear, themonth-1, thedate);
+var dinaddate = getDina (thedate, themonth, theyear);
+var pasaranddate = getPasaran (thedate, themonth, theyear);
+var selamatand = dinaddate + " " + pasaranddate + " " + thedate+ " " + bulan[themonth] + " " + theyear;
+var date3 = new Date(ddate.getTime() + 3*24*60*60*1000);
+var daydate3 = date3.getDate();
+var monthdate3 = date3.getMonth()+1;
+var yeardate3 = date3.getFullYear();
+var dinadate3 = getDina (daydate3, monthdate3, yeardate3);
+var pasarandate3 = getPasaran (daydate3, monthdate3, yeardate3);
+var selamatan3 = dinadate3 + " " + pasarandate3 + " " + daydate3 + " " + bulan[monthdate3] + " " + yeardate3;
+var date7 = new Date(ddate.getTime() + 7*24*60*60*1000);
+var daydate7 = date7.getDate();
+var monthdate7 = date7.getMonth()+1;
+var yeardate7 = date7.getFullYear();
+var dinadate7 = getDina (daydate7, monthdate7, yeardate7);
+var pasarandate7 = getPasaran (daydate7, monthdate7, yeardate7);
+var selamatan7 = dinadate7 + " " + pasarandate7 + " " + daydate7 + " " + bulan[monthdate7] + " " + yeardate7;
+var date40 = new Date(ddate.getTime() + 40*24*60*60*1000);
+var daydate40 = date40.getDate();
+var monthdate40 = date40.getMonth()+1;
+var yeardate40 = date40.getFullYear();
+var dinadate40 = getDina (daydate40, monthdate40, yeardate40);
+var pasarandate40 = getPasaran (daydate40, monthdate40, yeardate40);
+var selamatan40 = dinadate40 + " " + pasarandate40 + " " + daydate40 + " " + bulan[monthdate40] + " " + yeardate40;
+var date100 = new Date(ddate.getTime() + 100*24*60*60*1000);
+var daydate100 = date100.getDate();
+var monthdate100 = date100.getMonth()+1;
+var yeardate100 = date100.getFullYear();
+var dinadate100 = getDina (daydate100, monthdate100, yeardate100);
+var pasarandate100 = getPasaran (daydate100, monthdate100, yeardate100);
+var selamatan100 = dinadate100 + " " + pasarandate100 + " " + daydate100 + " " + bulan[monthdate100] + " " + yeardate100;
+var date354 = new Date(ddate.getTime() + 354*24*60*60*1000);
+var daydate354 = date354.getDate();
+var monthdate354 = date354.getMonth()+1;
+var yeardate354 = date354.getFullYear();
+var dinadate354 = getDina (daydate354, monthdate354, yeardate354);
+var pasarandate354 = getPasaran (daydate354, monthdate354, yeardate354);
+var selamatan354 = dinadate354 + " " + pasarandate354 + " " + daydate354 + " " + bulan[monthdate354] + " " + yeardate354;
+var date708 = new Date(ddate.getTime() + 708*24*60*60*1000);
+var daydate708 = date708.getDate();
+var monthdate708 = date708.getMonth()+1;
+var yeardate708 = date708.getFullYear();
+var dinadate708 = getDina (daydate708, monthdate708, yeardate708);
+var pasarandate708 = getPasaran (daydate708, monthdate708, yeardate708);
+var selamatan708 = dinadate708 + " " + pasarandate708 + " " + daydate708 + " " + bulan[monthdate708] + " " + yeardate708;
+var date1000 = new Date(ddate.getTime() + 1000*24*60*60*1000);
+var daydate1000 = date1000.getDate();
+var monthdate1000 = date1000.getMonth()+1;
+var yeardate1000 = date1000.getFullYear();
+var dinadate1000 = getDina (daydate1000, monthdate1000, yeardate1000);
+var pasarandate1000 = getPasaran (daydate1000, monthdate1000, yeardate1000);
+var selamatan1000 = dinadate1000 + " " + pasarandate1000 + " " + daydate1000 + " " + bulan[monthdate1000] + " " + yeardate1000;
+document.write (
+"<html>\n" +
+"<head>\n" +
+"<title>Hasil Perhitungan</title>\n" +
+"<style type=\"text/css\">\n" +
+"p, td, li\n" +
+"{ \n" +
+" font-family: arial, verdana, Helvetica, Geneva, sans-serif; \n" +
+" color: #000000; \n" +
+" text-decoration: none; \n" +
+" font-size: 13px; \n" +
+"}\n" +
+"h3\n" +
+"{ \n" +
+" font-family: arial, verdana, Helvetica, Geneva, sans-serif;\n " +
+" color: #000000; \n" +
+" text-decoration: none; \n" +
+" font-size: 16px; \n" +
+"}\n" +
+"</style>\n" +
+"</head>\n" +
+"<body>\n" +
+"<h3>Hasil Perhitungan</h3>\n" +
+"<ol>\n" +
+"<b><li>Selamatan tepat hari meninggal <i>(geblake)</i> : </b>" + selamatand + "</li>\n" +
+"<b><li>Selamatan 3 hari meninggal : </b>" + selamatan3 + "</li>\n" +
+"<b><li>Selamatan 7 hari meninggal : </b>" + selamatan7 + "</li>\n" +
+"<b><li>Selamatan 40 hari meninggal : </b>" + selamatan40 + "</li>\n" +
+"<b><li>Selamatan 100 hari meninggal : </b>" + selamatan100 + "</li>\n" +
+"<b><li>Selamatan Pendhak I (354 hari) meninggal : </b>" + selamatan354 + "</li>\n" +
+"<b><li>Selamatan Pendhak II (708 hari) meninggal : </b>" + selamatan708 + "</li>\n" +
+"<b><li>Selamatan 1000 hari meninggal : </b>" + selamatan1000 + "</li>\n" +
+"</ol>\n" +
+"<p><b>Persyaratan <i>(ubarampene)</i> selamatan untuk orang yang meninggal :</b><br>\n" +
+"<ol>\n" +
+" <li>Nasi gurih, lauk pauknya <i>garingan</i>, artinya tidak boleh memakai sayur-sayuran. Lauknya biasanya <b><i>ingkung ayam</i></b>, yaitu ayam yang lengkap dengan jerohannya, dimasak kering (panggang) dalam keadaan <i>wutuh</i> artinya seekor tidak dipotong-potong , sedangkan lainnya boleh dipotong seperti biasa.</li>\n" +
+" <li>Kue-kuenya, jangan melupakan kue <b><i>apem.</i></b></li>\n" +
+" <li><b><i>Kembang Kum</i></b> yaitu bunga yang ditempatkan dalam tempat yang berisi air</li>" +
+" <li><b><i>Salawate (saren)</i></b> sekadarnya.</li>\n" +
+" <li>Juga jangan lupa membuat <b><i>sandingan</i></b> yaitu semacam sajen yang bahannya diambilkan dari makanan yang dipakai selamatan, seperti nasi gurih, lauk yang dipakai selamatan dengan kue-kue yang ada, kopi, <i>kembang kum</i>, rokok + korek dan kendi isi air mentah serta kobokan isi air (untuk cuci tangan). </li>\n" +
+"</ol>\n" +
+"<p>Barang-barang tersebut ditempatkan pada tempat tertentu yang tidak terganggu oleh orang yang lalu lalang dan diberi lampu (boleh listrik yang ada di ruangan itu, atau lampu teplok dan sebagainya kalau belum ada aliran listrik )</p>\n" +
+"<p><b>Khusus untuk selamatan 1000 hari :</b><br>\n" +
+"<i>Ubarampe</i> di atas ditambah dengan kain kafan 3 m, tikar, sandal, piring, cangkir 1 stel, sendok, payung, lampu teplok, kalau ada pakaian atau benda-benda yang menjadi kelangenan / kesenangan orang yang meninggal tersebut dapat diikutsertakan. <br>\n" +
+"Semua barang-barang ini ikut dikendurikan.</p>\n" +
+"<p><b>Hal-hal yang harus diingat yaitu:</b><br>\n" +
+"<ol>\n" +
+" <li>Walaupun menyembelih kambing atau sapi, tetapi jangan lupa lauk ingkung ayam. </li>\n" +
+" <li>Kalau disembelihkan kambing atau sapi, kulitnya jangan dijual tetapi disedekahkan.</li>\n" +
+" <li>Lauk yang dipergunakan untuk selamatan itu harus habis pada malam itu juga dan jangan sampai menyisakan untuk hari esok, lebih-lebih kalau sisa itu berupa yang masih mentah, misalnya : satu paha sapi, atau kambing.</li>\n" +
+"</ol>\n" +
+"</p>\n" +
+"</body>\n" +
+"</html>\n"
+);
+return null;
+}
+</script>
+<style type="text/css">
+td, p
+{
+font-family: arial, verdana, Helvetica, Geneva, sans-serif;
+color: #000000;
+text-decoration: none;
+font-size: 13px;
+}
+h3
+{
+font-family: arial, verdana, Helvetica, Geneva, sans-serif;
+color: #000000;
+text-decoration: none;
+font-size: 16px;
+}
+
+<noscript>Sumber script: http://primbonjojo280784.blogspot.com/p/perhitungan-hari-selamatan-orang.html</noscript>
+</style>
+
+
+<h3>Menghitung Selamatan Orang Meninggal</h3>
+<p> Program ini adalah program untuk menghitung hari selamatan orang meninggal yang biasa dilakukan oleh masyarakat suku Jawa. </p>
+<form>
+<table>
+<tbody>
+<tr>
+<td>Tanggal kematian almarhum/ah: </td>
+<td>
+<select name="date">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10 selected">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select>
+<select name="month">
+<option value="1">Januari</option>
+<option value="2">Pebruari</option>
+<option value="3">Maret</option>
+<option value="4">April</option>
+<option value="5">Mei</option>
+<option value="6">Juni</option>
+<option value="7">Juli</option>
+<option selected="" value="8">Agustus</option>
+<option value="9">September</option>
+<option value="10">Oktober</option>
+<option value="11">November</option>
+<option value="12">Desember</option>
+</select>
+<select name="year">
+<option value="1901">1901</option>
+<option value="1902">1902</option>
+<option value="1903">1903</option>
+<option value="1904">1904</option>
+<option value="1905">1905</option>
+<option value="1906">1906</option>
+<option value="1907">1907</option>
+<option value="1908">1908</option>
+<option value="1909">1909</option>
+<option value="1910">1910</option>
+<option value="1911">1911</option>
+<option value="1912">1912</option>
+<option value="1913">1913</option>
+<option value="1914">1914</option>
+<option value="1915">1915</option>
+<option value="1916">1916</option>
+<option value="1917">1917</option>
+<option value="1918">1918</option>
+<option value="1919">1919</option>
+<option value="1920">1920</option>
+<option value="1921">1921</option>
+<option value="1922">1922</option>
+<option value="1923">1923</option>
+<option value="1924">1924</option>
+<option value="1925">1925</option>
+<option value="1926">1926</option>
+<option value="1927">1927</option>
+<option value="1928">1928</option>
+<option value="1929">1929</option>
+<option value="1930">1930</option>
+<option value="1931">1931</option>
+<option value="1932">1932</option>
+<option value="1933">1933</option>
+<option value="1934">1934</option>
+<option value="1935">1935</option>
+<option value="1936">1936</option>
+<option value="1937">1937</option>
+<option value="1938">1938</option>
+<option value="1939">1939</option>
+<option value="1940">1940</option>
+<option value="1941">1941</option>
+<option value="1942">1942</option>
+<option value="1943">1943</option>
+<option value="1944">1944</option>
+<option value="1945">1945</option>
+<option value="1946">1946</option>
+<option value="1947">1947</option>
+<option value="1948">1948</option>
+<option value="1949">1949</option>
+<option value="1950">1950</option>
+<option value="1951">1951</option>
+<option value="1952">1952</option>
+<option value="1953">1953</option>
+<option value="1954">1954</option>
+<option value="1955">1955</option>
+<option value="1956">1956</option>
+<option value="1957">1957</option>
+<option value="1958">1958</option>
+<option value="1959">1959</option>
+<option value="1960">1960</option>
+<option value="1961">1961</option>
+<option value="1962">1962</option>
+<option value="1963">1963</option>
+<option value="1964">1964</option>
+<option value="1965">1965</option>
+<option value="1966">1966</option>
+<option value="1967">1967</option>
+<option value="1968">1968</option>
+<option value="1969">1969</option>
+<option value="1970">1970</option>
+<option value="1971">1971</option>
+<option value="1972">1972</option>
+<option value="1973">1973</option>
+<option value="1974">1974</option>
+<option value="1975">1975</option>
+<option value="1976">1976</option>
+<option value="1977">1977</option>
+<option value="1978">1978</option>
+<option value="1979 selected">1979</option>
+<option value="1980">1980</option>
+<option value="1981">1981</option>
+<option value="1982">1982</option>
+<option value="1983">1983</option>
+<option value="1984">1984</option>
+<option value="1985">1985</option>
+<option value="1986">1986</option>
+<option value="1987">1987</option>
+<option value="1988">1988</option>
+<option value="1989">1989</option>
+<option value="1990">1990</option>
+<option value="1991">1991</option>
+<option value="1992">1992</option>
+<option value="1993">1993</option>
+<option value="1994">1994</option>
+<option value="1995">1995</option>
+<option value="1996">1996</option>
+<option value="1997">1997</option>
+<option value="1998">1998</option>
+<option value="1999">1999</option>
+<option value="2000">2000</option>
+<option value="2001">2001</option>
+<option value="2002">2002</option>
+<option value="2003">2003</option>
+<option value="2004">2004</option>
+<option value="2005">2005</option>
+<option value="2006">2006</option>
+<option value="2007">2007</option>
+<option value="2008">2008</option>
+<option value="2009">2009</option>
+<option value="2010">2010</option>
+<option value="2011">2011</option>
+<option value="2012">2012</option>
+<option value="2013">2013</option>
+<option value="2014">2014</option>
+<option value="2015">2015</option>
+<option value="2016">2016</option>
+<option value="2017">2017</option>
+<option value="2018">2018</option>
+<option value="2019">2019</option>
+<option value="2020">2020</option>
+<option value="2021">2021</option>
+<option value="2022">2022</option>
+<option value="2023">2023</option>
+<option value="2024">2024</option>
+<option value="2025">2025</option>
+<option value="2026">2026</option>
+<option value="2027">2027</option>
+<option value="2028">2028</option>
+<option value="2029">2029</option>
+<option value="2030">2030</option>
+<option value="2031">2031</option>
+<option value="2032">2032</option>
+<option value="2033">2033</option>
+<option value="2034">2034</option>
+<option value="2035">2035</option>
+<option value="2036">2036</option>
+<option value="2037">2037</option>
+<option value="2038">2038</option>
+<option value="2039">2039</option>
+<option value="2040">2040</option>
+<option value="2041">2041</option>
+<option value="2042">2042</option>
+<option value="2043">2043</option>
+<option value="2044">2044</option>
+<option value="2045">2045</option>
+<option value="2046">2046</option>
+<option value="2047">2047</option>
+<option value="2048">2048</option>
+<option value="2049">2049</option>
+<option value="2050">2050</option>
+<option value="2051">2051</option>
+<option value="2052">2052</option>
+<option value="2053">2053</option>
+<option value="2054">2054</option>
+<option value="2055">2055</option>
+<option value="2056">2056</option>
+<option value="2057">2057</option>
+<option value="2058">2058</option>
+<option value="2059">2059</option>
+<option value="2060">2060</option>
+<option value="2061">2061</option>
+<option value="2062">2062</option>
+<option value="2063">2063</option>
+<option value="2064">2064</option>
+<option value="2065">2065</option>
+<option value="2066">2066</option>
+<option value="2067">2067</option>
+<option value="2068">2068</option>
+<option value="2069">2069</option>
+<option value="2070">2070</option>
+<option value="2071">2071</option>
+<option value="2072">2072</option>
+<option value="2073">2073</option>
+<option value="2074">2074</option>
+<option value="2075">2075</option>
+<option value="2076">2076</option>
+<option value="2077">2077</option>
+<option value="2078">2078</option>
+<option value="2079">2079</option>
+<option value="2080">2080</option>
+<option value="2081">2081</option>
+<option value="2082">2082</option>
+<option value="2083">2083</option>
+<option value="2084">2084</option>
+<option value="2085">2085</option>
+<option value="2086">2086</option>
+<option value="2087">2087</option>
+<option value="2088">2088</option>
+<option value="2089">2089</option>
+<option value="2090">2090</option>
+<option value="2091">2091</option>
+<option value="2092">2092</option>
+<option value="2093">2093</option>
+<option value="2094">2094</option>
+<option value="2095">2095</option>
+<option value="2096">2096</option>
+<option value="2097">2097</option>
+<option value="2098">2098</option>
+<option value="2099">2099</option>
+<option value="2100">2100</option>
+</select>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<input type="button" onclick="hitung();" value="Hitung" name="Hitung">
+<center><button onclick="hitung();" value="Hitung" name="Hitung">Tutup Latin</button>
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+
+
+
+<br/><br/>	
+</center>
+</div>
+
+<br />
+<a class="font-button plus"><img style="bottom:18px;position:fixed;right:0px;width:50px;" src="masjid4.png"/></a>
+<a class="font-button minus"><img style="bottom:18px;position:fixed;left:0px;width:50px;" src="masjid3.png"/></a>
+			<div class="footer Fixed">
+				© coderTamvan
+			</div>
+			<nav id="menu">
+				<ul>
+					<li><a href="index.html">✪ Home</a></li>
+					<li><a href="tentang.html">✪ Tentang Aplikasi</a></li>
+					<li><a href="asmaulhusna.html">✪ Asmaul Husna</a></li>					
+					<li><a href="istighosah.html">✪ Doa-Doa Istighosah</a></li>						
+					<li><a href="tahlil.html">✪ Tahlil Lengkap</a></li>
+					<li><a href="tahlilringkas.html">✪ Tahlil Ringkas</a></li>
+					<li><a href="doatahlil.html">✪ Doa Tahlil</a>
+					<ul>
+					<li><a href="doatahlil.html">✪ Doa Tahlil V.1 (Singkat)</a></li>					
+					<li><a href="doatahlil2.html">✪ Doa Tahlil V.2 (Lengkap)</a></li>
+					
+					</ul>
+					</li>
+					<li><a href="yaasinarab.html">✪ Surat Yasin</a>
+					<ul>
+					<li><a href="doayasin.html">✪ Doa Surat Yasin</a></li>
+					<li><a href="fadilahyasin.html">✪ Fadilah Surat Yasin</a></li>			
+					</ul></li>
+					<li><a href="suratpilihan.html">✪ Surat Pilihan dan Juz 'Amma</a></li>			
+					<li><a href="lain.html">✪ Lain-Lain (Doa Dzikir dan Sholawat)</a></li>							
+				</ul>
+			</nav>
+		</div>
+	</body>
+</html>
